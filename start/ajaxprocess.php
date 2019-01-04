@@ -29,7 +29,7 @@ file_put_contents('ppl.json', $d);
 
 //print_r($d);
 
-print_r($_FILES['photo']);
+//print_r($_FILES['photo']);
 //$t to store temp location of updated file, when upload happens php tells us name of file, file type, size, errors if any, location, this is where php stores our file
 $t = $_FILES['photo']['tmp_name'];
 
