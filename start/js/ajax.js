@@ -1,6 +1,8 @@
 //1. function gets data from json file. 2. gets data on page
 //cl stands for card loading
 //ajax responsibile for getting or sending data
+
+//1. we are retrieving data
 $('document').ready(function(){
     
     function cl(){
@@ -41,7 +43,27 @@ $('document').ready(function(){
     
     cl();
     
-    
+    //jquery way below Submit accepts parameter of function
+    //2. sends data
+    $('form').submit(function(e){
+        
+        var fd = new FormData($(this)[0]);
+        //this removes line prevents all cards from duplicating
+        $(".person").remove();
+        $.ajax({
+            url:'ajaxprocess.php',
+            type:'post',
+            data: fd,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(){
+                cl();
+            } 
+        });
+            
+        e.preventDefault();
+    });
 
 });
 
